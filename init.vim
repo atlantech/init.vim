@@ -31,4 +31,10 @@ call plug#begin()
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'sheerun/vim-polyglot'
+    Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
+
+:tnoremap <Esc> <C-\><C-n>
+
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
