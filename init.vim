@@ -13,7 +13,7 @@ set autoindent              " indent a new line the same amount as the line just
 set number                  " add line numbers
 set relativenumber
 set wildmode=longest,list   " get bash-like tab completions
-set cc=80                  " set an 80 column border for good coding style
+"set cc=80                  " set an 80 column border for good coding style
 filetype plugin indent on   "allow auto-indenting depending on file type
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
@@ -32,9 +32,19 @@ call plug#begin()
     Plug 'vim-airline/vim-airline'
     Plug 'sheerun/vim-polyglot'
     Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'mfussenegger/nvim-dap'
+    Plug 'williamboman/mason.nvim'
+    Plug 'williamboman/mason-lspconfig.nvim'
 call plug#end()
+
+":lua << EOF
+"    require("mason").setup()
+"EOF
 
 :tnoremap <Esc> <C-\><C-n>
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
+
+:nnoremap <C-j> gt<CR>                                                                            
+:nnoremap <C-k> gT<CR>
