@@ -48,6 +48,7 @@ call plug#begin()
     Plug 'hrsh7th/cmp-buffer'
     Plug 'hrsh7th/vim-vsnip'
 
+    Plug 'puremourning/vimspector'
     Plug 'nvim-treesitter/nvim-treesitter'
     " colors
     " Plug 'arcticicestudio/nord-vim'
@@ -68,6 +69,8 @@ let g:airline#extensions#tabline#formatter = 'default'
 
 :nnoremap <C-j> gt<CR>                                                                            
 :nnoremap <C-k> gT<CR>
+
+let g:rustfmt_autosave = 1
 
 :lua << EOF
 require("mason").setup()
@@ -181,6 +184,11 @@ cmp.setup({
   },
 })
 
+local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+    require('lspconfig')['pyright'].setup {
+    capabilities = capabilities
+}
 -- Treesitter Plugin Setup 
 require('nvim-treesitter.configs').setup {
   ensure_installed = { "lua", "rust", "toml" },
