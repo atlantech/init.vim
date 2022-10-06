@@ -35,6 +35,7 @@ call plug#begin()
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mfussenegger/nvim-dap'
     Plug 'williamboman/mason.nvim'
+    " mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'simrat39/rust-tools.nvim'
