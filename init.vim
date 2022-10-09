@@ -26,6 +26,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " set backupdir=~/.cache/vim " Directory to store backup files.
 "
 "set t_Co=256
+set shell=/usr/bin/zsh
 
 call plug#begin()
     Plug 'preservim/nerdtree'
@@ -36,9 +37,15 @@ call plug#begin()
     Plug 'mfussenegger/nvim-dap'
     Plug 'williamboman/mason.nvim'
     " mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
+    " clangd
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'simrat39/rust-tools.nvim'
+    Plug 'ray-x/lsp_signature.nvim'
+    Plug 'onsails/lspkind.nvim'
+    Plug 'SirVer/ultisnips'
+    " Snippets are separated from the engine. Add this if you want them:
+    Plug 'honza/vim-snippets'
 
     Plug 'hrsh7th/nvim-cmp' 
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -125,15 +132,11 @@ vim.diagnostic.config({
     },
 })
 
-vim.cmd([[
-    set signcolumn=yes
-    autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
-
 require("opts")
 
 -- Completion Plugin Setup
 local cmp = require'cmp'
+local lspkind = require'lspkind'
 cmp.setup({
   -- Enable LSP snippets
   snippet = {
@@ -172,27 +175,41 @@ cmp.setup({
   },
   formatting = {
       fields = {'menu', 'abbr', 'kind'},
-      format = function(entry, item)
-          local menu_icon ={
-              nvim_lsp = 'λ',
-              vsnip = '⋗',
-              buffer = 'Ω',
-              path = '🖫',
-          }
-          item.menu = menu_icon[entry.source.name]
-          return item
-      end,
+      format = lspkind.cmp_format({
+          mode = 'symbol', -- show only symbol annotations
+          maxwidth = 50, -- prevent the popup from showing more than provided characters (e.g 50 will not show more than 50 characters)
+          ellipsis_char = '...', -- when popup menu exceed maxwidth, the truncated part would show ellipsis_char instead (must define maxwidth first)
+
+          -- The function below will be called before any actual modifications from lspkind
+          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+          before = function (entry, vim_item) 
+            return vim_item
+          end
+      }) 
+          --local menu_icon ={
+          --    nvim_lsp = 'λ',
+          --    vsnip = '⋗',
+          --    buffer = 'Ω',
+          --    path = '🖫',
+          --}
+          --item.menu = menu_icon[entry.source.name]
+          --return item
+      --end,
   },
 })
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-    require('lspconfig')['pyright'].setup {
+require('lspconfig')['pyright'].setup {
     capabilities = capabilities
 }
+
+require('lspconfig')['clangd'].setup{}
+
+require("lsp_signature").setup()
 -- Treesitter Plugin Setup 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "lua", "rust", "toml" },
+  ensure_installed = { "lua", "rust", "toml", "glsl" },
   auto_install = true,
   highlight = {
     enable = true,
