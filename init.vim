@@ -46,6 +46,7 @@ call plug#begin()
     Plug 'SirVer/ultisnips'
     " Snippets are separated from the engine. Add this if you want them:
     Plug 'honza/vim-snippets'
+    Plug 'airblade/vim-gitgutter'
 
     Plug 'hrsh7th/nvim-cmp' 
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -204,7 +205,9 @@ require('lspconfig')['pyright'].setup {
     capabilities = capabilities
 }
 
-require('lspconfig')['clangd'].setup{}
+require('lspconfig')['clangd'].setup {
+    cmd =  { "clangd", "--all-scopes-completion=1", "--clang-tidy=1", "--header-insertion=iwyu", "--enable-config" }
+}
 
 require("lsp_signature").setup()
 -- Treesitter Plugin Setup 
