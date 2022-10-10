@@ -80,7 +80,7 @@ let g:airline_theme='onedark'
 :nnoremap <C-j> gt<CR>                                                                            
 :nnoremap <C-k> gT<CR>
 
-let g:ctrlp_cmd='CtrlPMRU'
+let g:ctrlp_cmd='CtrlPMRUFiles'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
