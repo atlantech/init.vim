@@ -41,6 +41,7 @@ call plug#begin()
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'simrat39/rust-tools.nvim'
+    Plug 'p00f/clangd_extensions.nvim'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'onsails/lspkind.nvim'
     Plug 'SirVer/ultisnips'
@@ -209,9 +210,11 @@ require('lspconfig')['pyright'].setup {
     capabilities = capabilities
 }
 
-require('lspconfig')['clangd'].setup {
-    cmd =  { "clangd", "--all-scopes-completion=1", "--clang-tidy=1", "--header-insertion=iwyu", "--enable-config" }
-}
+require('clangd_extensions').setup({
+    server = {
+        cmd =  { "clangd", "--all-scopes-completion=1", "--clang-tidy=1", "--header-insertion=iwyu", "--enable-config" }
+    }
+})
 
 require("lsp_signature").setup()
 -- Treesitter Plugin Setup 
