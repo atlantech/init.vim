@@ -44,6 +44,7 @@ call plug#begin()
     Plug 'simrat39/rust-tools.nvim'
     Plug 'p00f/clangd_extensions.nvim'
     Plug 'rhysd/vim-clang-format'
+    Plug 'ludovicchabant/vim-gutentags'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'onsails/lspkind.nvim'
     Plug 'SirVer/ultisnips'
@@ -69,24 +70,28 @@ call plug#begin()
     Plug 'joshdick/onedark.vim'
 call plug#end()
 
+set statusline+=%{gutentags#statusline()}
+
 set termguicolors
 colorscheme onedark 
 let g:airline_theme='onedark'
 
-
 :tnoremap <Esc> <C-\><C-n>
+:nnoremap <C-j> gt<CR>                                                                            
+:nnoremap <C-k> gT<CR>
+
+let g:ctrlp_cmd='CtrlPMRU'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
 
-:nnoremap <C-j> gt<CR>                                                                            
-:nnoremap <C-k> gT<CR>
-
 let g:rustfmt_autosave = 1
+
 let g:UltiSnipsExpandTrigger='<tab>'
 let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
+
 
 :lua << EOF
 require("mason").setup()
