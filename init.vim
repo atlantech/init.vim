@@ -26,6 +26,7 @@ set ttyfast                 " Speed up scrolling in Vim
 " set backupdir=~/.cache/vim " Directory to store backup files.
 "
 "set t_Co=256
+set updatetime=100
 set shell=/usr/bin/zsh
 
 call plug#begin()
@@ -42,6 +43,7 @@ call plug#begin()
     Plug 'neovim/nvim-lspconfig'
     Plug 'simrat39/rust-tools.nvim'
     Plug 'p00f/clangd_extensions.nvim'
+    Plug 'rhysd/vim-clang-format'
     Plug 'ray-x/lsp_signature.nvim'
     Plug 'onsails/lspkind.nvim'
     Plug 'SirVer/ultisnips'
@@ -219,18 +221,17 @@ require('clangd_extensions').setup({
 require("lsp_signature").setup()
 -- Treesitter Plugin Setup 
 require('nvim-treesitter.configs').setup {
-  ensure_installed = { "lua", "rust", "toml", "glsl" },
-  auto_install = true,
-  highlight = {
-    enable = true,
-    additional_vim_regex_highlighting=false,
-  },
-  ident = { enable = true }, 
-  rainbow = {
-    enable = true,
-    extended_mode = true,
-    max_file_lines = nil,
-  }
+    ensure_installed = {"lua", "rust", "toml", "glsl"}, auto_install = true,
+    highlight =
+        {
+            enable = true,
+            additional_vim_regex_highlighting = false,
+        },
+    ident = {enable = true}, rainbow = {
+        enable = true,
+        extended_mode = true,
+        max_file_lines = nil,
+    }
 }
 
 EOF
