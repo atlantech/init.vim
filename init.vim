@@ -80,6 +80,10 @@ let g:airline#extensions#tabline#formatter = 'default'
 :nnoremap <C-k> gT<CR>
 
 let g:rustfmt_autosave = 1
+let g:UltiSnipsExpandTrigger='<tab>'
+let g:UltiSnipsListSnippets='<c-tab>'
+let g:UltiSnipsJumpForwardTrigger='<c-j>'
+let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 :lua << EOF
 require("mason").setup()
