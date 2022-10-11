@@ -27,7 +27,7 @@ set ttyfast                 " Speed up scrolling in Vim
 "
 "set t_Co=256
 set updatetime=100
-set shell=/usr/bin/zsh
+set shell=zsh
 
 call plug#begin()
     Plug 'preservim/nerdtree'
@@ -72,7 +72,10 @@ call plug#end()
 
 set statusline+=%{gutentags#statusline()}
 
-set termguicolors
+if has("termguicolors")
+    set termguicolors
+endif
+
 colorscheme onedark 
 let g:airline_theme='onedark'
 
