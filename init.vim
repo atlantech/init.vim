@@ -51,6 +51,7 @@ call plug#begin()
     " Snippets are separated from the engine. Add this if you want them:
     Plug 'honza/vim-snippets'
     Plug 'airblade/vim-gitgutter'
+    Plug 'liuchengxu/vista.vim'
 
     Plug 'hrsh7th/nvim-cmp' 
     Plug 'hrsh7th/cmp-nvim-lsp'
@@ -84,6 +85,10 @@ let g:airline_theme='onedark'
 :nnoremap <C-k> gT<CR>
 
 let g:ctrlp_cmd='CtrlPMRUFiles'
+let g:ctrlp_working_path_mode = 'ra'
+
+"let g:gutentags_trace=1
+let g:gutentags_ctags_executable='ctags'
 
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#formatter = 'default'
