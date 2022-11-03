@@ -11,3 +11,5 @@ vim.api.nvim_set_keymap('n', "Db", ":call vimspector#ToggleBreakpoint()<cr>", {}
 vim.api.nvim_set_keymap('n', "Dw", ":call vimspector#AddWatch()<cr>", {})
 vim.api.nvim_set_keymap('n', "De", ":call vimspector#Evaluate()<cr>", {})
 
+vim.api.nvim_set_keymap('n', "Fz", ":Files<cr>", {})
+vim.api.nvim_set_keymap('n', "Rg", ":Rg<cr>", {})
