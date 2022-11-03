@@ -30,7 +30,7 @@ set updatetime=100
 set shell=zsh
 
 call plug#begin()
-    Plug 'preservim/nerdtree'
+"    Plug 'preservim/nerdtree'
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'sheerun/vim-polyglot'
@@ -153,7 +153,7 @@ vim.diagnostic.config({
     },
 })
 
-require("opts")
+require("config")
 
 -- Completion Plugin Setup
 local cmp = require'cmp'
