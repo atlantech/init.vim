@@ -31,6 +31,8 @@ set shell=zsh
 
 call plug#begin()
 "    Plug 'preservim/nerdtree'
+    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+    Plug 'junegunn/fzf.vim'
     Plug 'ryanoasis/vim-devicons'
     Plug 'vim-airline/vim-airline'
     Plug 'sheerun/vim-polyglot'
