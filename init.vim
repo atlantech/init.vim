@@ -66,6 +66,7 @@ call plug#begin()
 
     Plug 'puremourning/vimspector'
     Plug 'nvim-treesitter/nvim-treesitter'
+    Plug 'sbdchd/neoformat'
     " colors
     " Plug 'arcticicestudio/nord-vim'
     Plug 'folke/lsp-colors.nvim'
@@ -102,6 +103,8 @@ let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
+let g:neoformat_try_node_exe=1
+autocmd BufWritePre *.{js,jsx,ts,tsx} Neoformat
 
 :lua << EOF
 require("mason").setup()
