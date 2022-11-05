@@ -13,3 +13,5 @@ vim.api.nvim_set_keymap('n', "De", ":call vimspector#Evaluate()<cr>", {})
 
 vim.api.nvim_set_keymap('n', "Fz", ":Files<cr>", {})
 vim.api.nvim_set_keymap('n', "Rg", ":Rg<cr>", {})
+vim.api.nvim_set_keymap('n', "Ex", ":Explore<cr>", {})
+vim.api.nvim_set_keymap('n', "Re", ":Rex<cr>", {})
