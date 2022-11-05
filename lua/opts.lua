@@ -29,5 +29,5 @@ vim.cmd([[
     let g:vimspector_terminal_maxwidth = 70
 ]])
 
-vim.g.netrw_keepdir = 0
+vim.g.netrw_keepdir = 1
 
