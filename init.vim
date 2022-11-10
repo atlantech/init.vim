@@ -40,7 +40,8 @@ call plug#begin()
     Plug 'mfussenegger/nvim-dap'
     Plug 'williamboman/mason.nvim'
     " mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
-    " clangd
+    " clangd, typescript, lua, tailwindcss
+    " todo add endure_installed = { ... }
     Plug 'williamboman/mason-lspconfig.nvim'
     Plug 'neovim/nvim-lspconfig'
     Plug 'simrat39/rust-tools.nvim'
@@ -237,6 +238,8 @@ cmp.setup({
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+require'lspconfig'.sumneko_lua.setup {}
+require'lspconfig'.tsserver.setup{}
 require('lspconfig')['pyright'].setup {
     capabilities = capabilities
 }
