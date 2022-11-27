@@ -52,6 +52,7 @@ call plug#begin()
     Plug 'onsails/lspkind.nvim'
     Plug 'SirVer/ultisnips'
     Plug 'vim-autoformat/vim-autoformat'
+    Plug 'RRethy/vim-illuminate'
     " Snippets are separated from the engine. Add this if you want them:
     Plug 'honza/vim-snippets'
     Plug 'airblade/vim-gitgutter'
@@ -77,6 +78,7 @@ call plug#begin()
     Plug 'joshdick/onedark.vim'
 call plug#end()
 
+"set statusline+=%F
 set statusline+=%{gutentags#statusline()}
 
 "Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
