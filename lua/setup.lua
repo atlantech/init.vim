@@ -13,7 +13,7 @@ local rt = {
 	},
 }
 
---require("rust-tools").setup(rt)
+require("rust-tools").setup(rt)
 
 -- LSP Diagnostics Options Setup
 local sign = function(opts)
