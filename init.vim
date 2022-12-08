@@ -39,6 +39,7 @@ call plug#begin()
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'mfussenegger/nvim-dap'
     Plug 'williamboman/mason.nvim'
+    Plug 'voldikss/vim-floaterm'
     " mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
     " clangd, typescript, lua, tailwindcss
     " todo add endure_installed = { ... }

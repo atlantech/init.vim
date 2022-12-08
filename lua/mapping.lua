@@ -15,3 +15,9 @@ vim.api.nvim_set_keymap('n', "Fz", ":Files<cr>", {})
 vim.api.nvim_set_keymap('n', "Rg", ":Rg<cr>", {})
 vim.api.nvim_set_keymap('n', "Ex", ":Explore<cr>", {})
 vim.api.nvim_set_keymap('n', "Re", ":Rex<cr>", {})
+
+vim.api.nvim_set_keymap('n', "<c-d>", "<c-d>zz", {})
+vim.api.nvim_set_keymap('n', "<c-u>", "<c-u>zz", {})
+
+vim.g.floaterm_keymap_new = '<Leader>ftn'
+vim.g.floaterm_keymap_toggle = '<Leader>ft'
