@@ -103,23 +103,23 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"sumneko_lua",
 		"clangd",
-		"cmake-language-server",
-		"codelldb",
-		"lua-language-server",
-		"pylint",
+--		"cmake-language-server",
+--		"codelldb",
+--		"lua-language-server",
+--		"pylint",
 		"pyright",
-		"python-lsp-server",
-		"erlang-ls",
-		"rust-analyzer",
-		"typescript-language-server",
-		"lua-language-server",
-		"vim-language-server",
+--		"python-lsp-server",
+--		"erlang-ls",
+--		"rust-analyzer",
+--		"typescript-language-server",
+--		"lua-language-server",
+--		"vim-language-server",
 		"tailwindcss",
-		"luaformatter",
+--		"luaformatter",
 	},
 })
 
-local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require("lspconfig").erlangls.setup({})
 require("lspconfig").sumneko_lua.setup({
