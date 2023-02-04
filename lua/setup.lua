@@ -1,5 +1,10 @@
 require("mason").setup()
 
+local symbols_outline = require("symbols-outline")
+symbols_outline.setup({
+	auto_preview = true,
+})
+
 local rt = {}
 
 require("rust-tools").setup(rt)
@@ -103,19 +108,19 @@ require("mason-lspconfig").setup({
 	ensure_installed = {
 		"sumneko_lua",
 		"clangd",
---		"cmake-language-server",
---		"codelldb",
---		"lua-language-server",
---		"pylint",
+		--		"cmake-language-server",
+		--		"codelldb",
+		--		"lua-language-server",
+		--		"pylint",
 		"pyright",
---		"python-lsp-server",
---		"erlang-ls",
---		"rust-analyzer",
---		"typescript-language-server",
---		"lua-language-server",
---		"vim-language-server",
+		--		"python-lsp-server",
+		--		"erlang-ls",
+		--		"rust-analyzer",
+		--		"typescript-language-server",
+		--		"lua-language-server",
+		--		"vim-language-server",
 		"tailwindcss",
---		"luaformatter",
+		--		"luaformatter",
 	},
 })
 

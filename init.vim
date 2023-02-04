@@ -34,8 +34,8 @@ call plug#begin()
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
-"TODO remove airline
-"Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'itchyny/lightline.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -48,6 +48,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'williamboman/mason-lspconfig.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'simrat39/symbols-outline.nvim'
 Plug 'p00f/clangd_extensions.nvim'
 Plug 'rhysd/vim-clang-format'
 Plug 'ludovicchabant/vim-gutentags'
@@ -75,10 +76,8 @@ Plug 'puremourning/vimspector'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sbdchd/neoformat'
 " colors
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'EdenEast/nightfox.nvim'
-"Plug 'sonph/onehalf', { 'rtp': 'vim' }
 Plug 'joshdick/onedark.vim'
 call plug#end()
 
@@ -100,9 +99,9 @@ if (has("termguicolors"))
 endif
 
 "colorscheme onedark
-colorscheme nightfox
-"let g:airline_theme='onedark'
-let g:lightline={ "colorscheme": "nightfox" }
+colorscheme nord
+let g:airline_theme='nord'
+"let g:lightline={ "colorscheme": "nightfox" }
 
 :tnoremap <Esc> <C-\><C-n>
 :nnoremap <C-j> gt<CR>
@@ -114,8 +113,8 @@ let g:ctrlp_working_path_mode = 'ra'
 "let g:gutentags_trace=1
 let g:gutentags_ctags_executable='ctags'
 
-"let g:airline#extensions#tabline#enabled = 1
-"let g:airline#extensions#tabline#formatter = 'default'
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'default'
 
 let g:rustfmt_autosave = 1
 
@@ -124,8 +123,10 @@ let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
+
+
 let g:neoformat_try_node_exe=1
-autocmd BufWritePre *.{js,jsx,ts,tsx} Neoformat
+autocmd BufWritePre *.{py,lua,js,jsx,ts,tsx} Neoformat
 
 :lua << EOF
 require("setup")
