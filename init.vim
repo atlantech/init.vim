@@ -1,11 +1,11 @@
 set nocompatible            " disable compatibility to old-time vi
-set showmatch               " show matching 
+set showmatch               " show matching
 set encoding=UTF-8
-set ignorecase              " case insensitive 
-set mouse=v                 " middle-click paste with 
-set hlsearch                " highlight search 
+set ignorecase              " case insensitive
+set mouse=v                 " middle-click paste with
+set hlsearch                " highlight search
 set incsearch               " incremental search
-set tabstop=4               " number of columns occupied by a tab 
+set tabstop=4               " number of columns occupied by a tab
 set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
 set expandtab               " converts tabs to white space
 set shiftwidth=4            " width for autoindents
@@ -31,52 +31,55 @@ set shell=zsh
 
 call plug#begin()
 "    Plug 'preservim/nerdtree'
-    Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-    Plug 'junegunn/fzf.vim'
-    Plug 'ryanoasis/vim-devicons'
-    Plug 'vim-airline/vim-airline'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'mfussenegger/nvim-dap'
-    Plug 'williamboman/mason.nvim'
-    Plug 'voldikss/vim-floaterm'
-    " mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
-    " clangd, typescript, lua, tailwindcss
-    " todo add endure_installed = { ... }
-    Plug 'williamboman/mason-lspconfig.nvim'
-    Plug 'neovim/nvim-lspconfig'
-    Plug 'simrat39/rust-tools.nvim'
-    Plug 'p00f/clangd_extensions.nvim'
-    Plug 'rhysd/vim-clang-format'
-    Plug 'ludovicchabant/vim-gutentags'
-    Plug 'ray-x/lsp_signature.nvim'
-    Plug 'onsails/lspkind.nvim'
-    Plug 'SirVer/ultisnips'
-    Plug 'vim-autoformat/vim-autoformat'
-    Plug 'RRethy/vim-illuminate'
-    " Snippets are separated from the engine. Add this if you want them:
-    Plug 'honza/vim-snippets'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'tpope/vim-fugitive'
-    Plug 'liuchengxu/vista.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'ryanoasis/vim-devicons'
+"TODO remove airline
+"Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'mfussenegger/nvim-dap'
+Plug 'williamboman/mason.nvim'
+Plug 'voldikss/vim-floaterm'
+" mason deps: pyright, pylint, python-lsp-server, codelldb, rust-analyzer
+" clangd, typescript, lua, tailwindcss
+" todo add endure_installed = { ... }
+Plug 'williamboman/mason-lspconfig.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
+Plug 'p00f/clangd_extensions.nvim'
+Plug 'rhysd/vim-clang-format'
+Plug 'ludovicchabant/vim-gutentags'
+Plug 'ray-x/lsp_signature.nvim'
+Plug 'onsails/lspkind.nvim'
+Plug 'SirVer/ultisnips'
+Plug 'vim-autoformat/vim-autoformat'
+Plug 'RRethy/vim-illuminate'
+" Snippets are separated from the engine. Add this if you want them:
+Plug 'honza/vim-snippets'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'liuchengxu/vista.vim'
 
-    Plug 'hrsh7th/nvim-cmp' 
-    Plug 'hrsh7th/cmp-nvim-lsp'
-    Plug 'hrsh7th/cmp-nvim-lua'
-    Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
-    Plug 'hrsh7th/cmp-vsnip'
-    Plug 'hrsh7th/cmp-path'
-    Plug 'hrsh7th/cmp-buffer'
-    Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+Plug 'hrsh7th/cmp-nvim-lua'
+Plug 'hrsh7th/cmp-nvim-lsp-signature-help'
+Plug 'hrsh7th/cmp-vsnip'
+Plug 'hrsh7th/cmp-path'
+Plug 'hrsh7th/cmp-buffer'
+Plug 'hrsh7th/vim-vsnip'
 
-    Plug 'puremourning/vimspector'
-    Plug 'nvim-treesitter/nvim-treesitter'
-    Plug 'sbdchd/neoformat'
-    " colors
-    " Plug 'arcticicestudio/nord-vim'
-    Plug 'folke/lsp-colors.nvim'
-    "Plug 'sonph/onehalf', { 'rtp': 'vim' }
-    Plug 'joshdick/onedark.vim'
+Plug 'puremourning/vimspector'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sbdchd/neoformat'
+" colors
+" Plug 'arcticicestudio/nord-vim'
+Plug 'folke/lsp-colors.nvim'
+Plug 'EdenEast/nightfox.nvim'
+"Plug 'sonph/onehalf', { 'rtp': 'vim' }
+Plug 'joshdick/onedark.vim'
 call plug#end()
 
 "set statusline+=%F
@@ -96,11 +99,13 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-colorscheme onedark 
-let g:airline_theme='onedark'
+"colorscheme onedark
+colorscheme nightfox
+"let g:airline_theme='onedark'
+let g:lightline={ "colorscheme": "nightfox" }
 
 :tnoremap <Esc> <C-\><C-n>
-:nnoremap <C-j> gt<CR>                                                                            
+:nnoremap <C-j> gt<CR>
 :nnoremap <C-k> gT<CR>
 
 let g:ctrlp_cmd='CtrlPMRUFiles'
@@ -109,8 +114,8 @@ let g:ctrlp_working_path_mode = 'ra'
 "let g:gutentags_trace=1
 let g:gutentags_ctags_executable='ctags'
 
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#formatter = 'default'
+"let g:airline#extensions#tabline#enabled = 1
+"let g:airline#extensions#tabline#formatter = 'default'
 
 let g:rustfmt_autosave = 1
 
@@ -123,6 +128,6 @@ let g:neoformat_try_node_exe=1
 autocmd BufWritePre *.{js,jsx,ts,tsx} Neoformat
 
 :lua << EOF
-    require("setup")
+require("setup")
 EOF
 
