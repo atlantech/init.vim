@@ -126,6 +126,7 @@ let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
 let g:neoformat_try_node_exe=1
 autocmd BufWritePre *.{py,lua,js,jsx,ts,tsx} Neoformat
+autocmd BufWritePre *.{c,cpp,h,hpp} ClangFormat
 
 :lua << EOF
 require("setup")
