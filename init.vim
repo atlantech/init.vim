@@ -78,7 +78,10 @@ Plug 'sbdchd/neoformat'
 Plug 'arcticicestudio/nord-vim'
 Plug 'folke/lsp-colors.nvim'
 Plug 'joshdick/onedark.vim'
+Plug 'beanworks/vim-phpfmt'
 call plug#end()
+
+" todo: ensure binary dependencies are instlled
 
 "set statusline+=%F
 set statusline+=%{gutentags#statusline()}
@@ -106,9 +109,11 @@ let g:airline_theme='nord'
 :nnoremap <C-j> gt<CR>
 :nnoremap <C-k> gT<CR>
 
-let g:ctrlp_cmd='CtrlPMRUFiles'
+let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
+let g:ctrlp_cmd='CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
 
+let g:fzf_tags_command = 'ctags -R'
 "let g:gutentags_trace=1
 let g:gutentags_ctags_executable='ctags'
 

@@ -106,8 +106,9 @@ cmp.setup({
 
 require("mason-lspconfig").setup({
 	ensure_installed = {
-		"sumneko_lua",
+		"lua_ls",
 		"clangd",
+		"gopls",
 		--		"cmake-language-server",
 		--		"codelldb",
 		--		"lua-language-server",
@@ -121,19 +122,21 @@ require("mason-lspconfig").setup({
 		--		"vim-language-server",
 		"tailwindcss",
 		--		"luaformatter",
+		"phpactor",
 	},
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require("lspconfig").erlangls.setup({})
-require("lspconfig").sumneko_lua.setup({
+require("lspconfig").lua_ls.setup({
 	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
 })
 require("lspconfig").tsserver.setup({})
 require("lspconfig")["pyright"].setup({
 	capabilities = capabilities,
 })
+require("lspconfig").phpactor.setup({})
 
 require("clangd_extensions").setup({
 	server = {
@@ -144,7 +147,7 @@ require("clangd_extensions").setup({
 require("lsp_signature").setup()
 -- Treesitter Plugin Setup
 require("nvim-treesitter.configs").setup({
-	ensure_installed = { "lua", "javascript", "typescript", "php", "rust", "toml", "glsl" },
+	ensure_installed = { "c", "lua", "javascript", "typescript", "php", "rust", "toml", "glsl" },
 	auto_install = true,
 	highlight = {
 		enable = true,
