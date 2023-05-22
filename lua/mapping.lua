@@ -21,5 +21,7 @@ vim.api.nvim_set_keymap("n", "Re", ":Rex<cr>:set number<cr>", {})
 vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", {})
 vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", {})
 
+vim.api.nvim_set_keymap("n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<cr>", {})
+
 vim.g.floaterm_keymap_new = "<Leader>ftn"
 vim.g.floaterm_keymap_toggle = "<Leader>ft"

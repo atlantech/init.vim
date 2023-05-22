@@ -77,7 +77,7 @@ Plug 'sbdchd/neoformat'
 " colors
 Plug 'arcticicestudio/nord-vim'
 Plug 'folke/lsp-colors.nvim'
-Plug 'joshdick/onedark.vim'
+Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
 Plug 'beanworks/vim-phpfmt'
 call plug#end()
 
@@ -100,10 +100,8 @@ if (has("termguicolors"))
     set termguicolors
 endif
 
-"colorscheme onedark
-colorscheme nord
-let g:airline_theme='nord'
-"let g:lightline={ "colorscheme": "nightfox" }
+colorscheme catppuccin-latte
+let g:airline_theme='catppuccin'
 
 :tnoremap <Esc> <C-\><C-n>
 :nnoremap <C-j> gt<CR>
@@ -117,7 +115,7 @@ let g:fzf_tags_command = 'ctags -R'
 "let g:gutentags_trace=1
 let g:gutentags_ctags_executable='ctags'
 
-let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#enabled = 0
 let g:airline#extensions#tabline#formatter = 'default'
 
 let g:rustfmt_autosave = 1
