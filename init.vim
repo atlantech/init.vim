@@ -127,11 +127,12 @@ let g:UltiSnipsListSnippets='<c-tab>'
 let g:UltiSnipsJumpForwardTrigger='<c-j>'
 let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 
-
+" fix airline bug when airline switches theme to default
+autocmd BufLeave,BufEnter,BufHidden,WinResized,WinLeave * :AirlineRefresh 
 
 let g:neoformat_try_node_exe=1
 autocmd BufWritePre *.{py,lua,js,jsx,ts,tsx} Neoformat
-autocmd BufWritePre *.{c,cpp,h,hpp} ClangFormat
+autocmd BufWritePre *.{m,mm,c,cpp,h,hpp} ClangFormat
 
 :lua << EOF
 require("setup")
