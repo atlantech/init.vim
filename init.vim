@@ -107,6 +107,8 @@ let g:airline_theme='catppuccin'
 :nnoremap <C-j> gt<CR>
 :nnoremap <C-k> gT<CR>
 
+let g:netrw_localcopydircmd = 'cp -r'
+let g:netrw_winsize = 30
 let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
 let g:ctrlp_cmd='CtrlPBuffer'
 let g:ctrlp_working_path_mode = 'ra'
