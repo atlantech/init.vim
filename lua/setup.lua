@@ -1,3 +1,77 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+local ins = {
+	"nvim-lua/plenary.nvim",
+	{ "nvim-telescope/telescope.nvim", tag = "0.1.1" },
+	{
+		"junegunn/fzf",
+	},
+	"junegunn/fzf.vim",
+	"ryanoasis/vim-devicons",
+	"nvim-lualine/lualine.nvim",
+	"sheerun/vim-polyglot",
+	"ctrlpvim/ctrlp.vim",
+	"mfussenegger/nvim-dap",
+	"williamboman/mason.nvim",
+	"voldikss/vim-floaterm",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+	"simrat39/rust-tools.nvim",
+	"simrat39/symbols-outline.nvim",
+	"p00f/clangd_extensions.nvim",
+	"rhysd/vim-clang-format",
+	"ludovicchabant/vim-gutentags",
+	"ray-x/lsp_signature.nvim",
+	"onsails/lspkind.nvim",
+	"SirVer/ultisnips",
+	"vim-autoformat/vim-autoformat",
+	"RRethy/vim-illuminate",
+	"honza/vim-snippets",
+	"airblade/vim-gitgutter",
+	"tpope/vim-fugitive",
+	"christoomey/vim-tmux-navigator",
+	"tpope/vim-obsession",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-nvim-lua",
+	"hrsh7th/cmp-nvim-lsp-signature-help",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/vim-vsnip",
+	"puremourning/vimspector",
+	"nvim-treesitter/nvim-treesitter",
+	"sbdchd/neoformat",
+	"arcticicestudio/nord-vim",
+	"folke/lsp-colors.nvim",
+	{ "catppuccin/nvim", name = "catppuccin" },
+	"beanworks/vim-phpfmt",
+}
+
+require("lazy").setup(ins, opts)
+
+require("catppuccin").setup({
+	flavour = "latte",
+	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
+})
+require("lualine").setup({
+	options = {
+		theme = "catppuccin",
+	},
+})
+vim.cmd.colorscheme("catppuccin")
+
 require("mason").setup()
 
 local symbols_outline = require("symbols-outline")
@@ -39,7 +113,7 @@ vim.diagnostic.config({
 
 require("config")
 
--- Completion Plugin Setup
+-- Completion in Setup
 local cmp = require("cmp")
 local lspkind = require("lspkind")
 cmp.setup({
@@ -69,7 +143,7 @@ cmp.setup({
 		{ name = "path" }, -- file paths
 		{ name = "nvim_lsp", keyword_length = 3 }, -- from language server
 		{ name = "nvim_lsp_signature_help" }, -- display function signatures with current parameter emphasized
-		{ name = "nvim_lua", keyword_length = 2 }, -- complete neovim's Lua runtime API such vim.lsp.*
+		{ name = "nvim_lua", keyword_length = 2 }, -- complete neovim"s Lua runtime API such vim.lsp.*
 		{ name = "buffer", keyword_length = 2 }, -- source current buffer
 		{ name = "vsnip", keyword_length = 2 }, -- nvim-cmp source for vim-vsnip
 		{ name = "calc" }, -- source for math calculation
@@ -93,10 +167,10 @@ cmp.setup({
 		end,
 		--
 		--local menu_icon ={
-		--    nvim_lsp = 'λ',
-		--    vsnip = '⋗',
-		--    buffer = 'Ω',
-		--    path = '🖫',
+		--    nvim_lsp = "λ",
+		--    vsnip = "⋗",
+		--    buffer = "Ω",
+		--    path = "🖫",
 		--}
 		--item.menu = menu_icon[entry.source.name]
 		--return item
@@ -127,7 +201,7 @@ require("mason-lspconfig").setup({
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities(vim.lsp.protocol.make_client_capabilities())
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
+-- Replace <YOUR_LSP_SERVER> with each lsp server you"ve enabled.
 require("lspconfig").erlangls.setup({})
 require("lspconfig").lua_ls.setup({
 	settings = { Lua = { diagnostics = { globals = { "vim" } } } },
@@ -145,7 +219,7 @@ require("clangd_extensions").setup({
 })
 
 require("lsp_signature").setup()
--- Treesitter Plugin Setup
+-- Treesitter in Setup
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "c", "lua", "javascript", "typescript", "php", "rust", "toml", "glsl" },
 	auto_install = true,
