@@ -19,7 +19,7 @@ local ins = {
 	},
 	"junegunn/fzf.vim",
 	"ryanoasis/vim-devicons",
-	"nvim-lualine/lualine.nvim",
+	--"nvim-lualine/lualine.nvim",
 	"sheerun/vim-polyglot",
 	"ctrlpvim/ctrlp.vim",
 	"mfussenegger/nvim-dap",
@@ -65,11 +65,11 @@ require("catppuccin").setup({
 	flavour = "latte",
 	compile_path = vim.fn.stdpath("cache") .. "/catppuccin",
 })
-require("lualine").setup({
-	options = {
-		theme = "catppuccin",
-	},
-})
+--require("lualine").setup({
+--	options = {
+--		theme = "catppuccin",
+--	},
+--})
 vim.cmd.colorscheme("catppuccin")
 
 require("mason").setup()
