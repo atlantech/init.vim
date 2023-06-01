@@ -4,6 +4,18 @@ local plugins = {
     "junegunn/fzf",
   },
   "junegunn/fzf.vim",
+  {
+    "nvim-telescope/telescope-fzf-native.nvim",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      extensions_list = {
+        "fzf",
+      },
+    },
+  },
   "ryanoasis/vim-devicons",
   "sheerun/vim-polyglot",
   "mfussenegger/nvim-dap",
