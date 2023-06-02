@@ -20,6 +20,15 @@ local plugins = {
   "sheerun/vim-polyglot",
   "mfussenegger/nvim-dap",
   "voldikss/vim-floaterm",
+  {
+    "williamboman/mason.nvim",
+    opts = function()
+      local default_conf = require "plugins.configs.mason"
+      local custom = require "custom.configs.mason"
+
+      return vim.tbl_deep_extend("force", default_conf, custom)
+    end,
+  },
   "williamboman/mason-lspconfig.nvim",
   {
     "neovim/nvim-lspconfig",
