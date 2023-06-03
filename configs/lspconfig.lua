@@ -31,15 +31,15 @@ local servers = {
   "yamlls",
 }
 
+for _, server in ipairs(servers) do
+  lspconfig[server].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end
+
 lspconfig.rust_analyzer.setup {
   settings = {
     ["rust-analyzer"] = {},
   },
 }
-
-for _, server in ipairs(servers) do
-  lspconfig[server] = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
-end

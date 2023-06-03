@@ -31,6 +31,15 @@ local plugins = {
   },
   "williamboman/mason-lspconfig.nvim",
   {
+    "nvim-treesitter/nvim-treesitter",
+    opts = function()
+      local default = require "plugins.configs.treesitter"
+      local custom = require "custom.configs.treesitter"
+
+      return vim.tbl_deep_extend("force", default, custom)
+    end,
+  },
+  {
     "neovim/nvim-lspconfig",
     config = function()
       require "plugins.configs.lspconfig"
@@ -154,7 +163,7 @@ local plugins = {
   "folke/lsp-colors.nvim",
   { "catppuccin/nvim", name = "catppuccin" },
   "beanworks/vim-phpfmt",
-  "ziglang/zig.vim",
+  { "ziglang/zig.vim", lazy = false },
 }
 
 return plugins

@@ -43,6 +43,7 @@ local options = {
     "java-debug-adapter",
     "kotlin-debug-adapter",
     "php-debug-adapter",
+    "zls",
   },
 }
 
