@@ -24,7 +24,7 @@ local servers = {
   "jsonls",
   "kotlin_language_server",
   "phpactor",
-  "ruby_lsp",
+  "ruby_ls",
   "tailwindcss",
   "tsserver",
   "vimls",
