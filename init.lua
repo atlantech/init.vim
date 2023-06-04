@@ -1,31 +1,4 @@
-require "custom/lua/setup"
-
-vim.cmd [[
-    nmap <S-F9> <cmd>call vimspector#Launch()<cr>
-    nmap <S-F2> <cmd>call vimspector#Reset()<cr>
-    nmap <F8> <cmd>call vimspector#StepOver()<cr>
-    nmap <F9> <cmd>call vimspector#Continue()<cr>
-    nmap <F12> <cmd>call vimspector#StepOut()<cr>")
-    nmap <F10> <cmd>call vimspector#StepInto()<cr>")
-]]
-vim.api.nvim_set_keymap("n", "Db", ":call vimspector#ToggleBreakpoint()<cr>", {})
-vim.api.nvim_set_keymap("n", "Dw", ":call vimspector#AddWatch()<cr>", {})
-vim.api.nvim_set_keymap("n", "De", ":call vimspector#Evaluate()<cr>", {})
-
-vim.api.nvim_set_keymap("n", "Fzf", ":Files!<cr>", {})
-vim.api.nvim_set_keymap("n", "Fzg", ":GFiles!<cr>", {})
-
-vim.api.nvim_set_keymap("n", "Rg", ":Rg!<cr>", {})
-vim.api.nvim_set_keymap("n", "Ex", ":Explore<cr>:set number<cr>", {})
-vim.api.nvim_set_keymap("n", "Re", ":Rex<cr>:set number<cr>", {})
-
-vim.api.nvim_set_keymap("n", "<c-d>", "<c-d>zz", {})
-vim.api.nvim_set_keymap("n", "<c-u>", "<c-u>zz", {})
-
 vim.api.nvim_set_keymap("n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<cr>", {})
-
-vim.g.floaterm_keymap_new = "<Leader>ftn"
-vim.g.floaterm_keymap_toggle = "<Leader>ft"
 
 --Set completeopt to have a better completion experience
 -- :help completeopt
@@ -53,9 +26,6 @@ vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 
 -- Vimspector options
 vim.cmd [[
-    let g:vimspector_sidebar_width = 85
-    let g:vimspector_bottombar_height = 15
-    let g:vimspector_terminal_maxwidth = 70
     set nocompatible            " disable compatibility to old-time vi
     set showmatch               " show matching
     set encoding=UTF-8
@@ -101,5 +71,3 @@ vim.cmd [[
     autocmd BufWritePre *.{py,lua,js,jsx,ts,tsx} Neoformat
     autocmd BufWritePre *.{m,mm,c,cpp,h,hpp} ClangFormat
 ]]
-
-vim.g.netrw_keepdir = 1

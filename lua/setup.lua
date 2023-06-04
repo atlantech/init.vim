@@ -1,11 +1,10 @@
-
 -- LSP Diagnostics Options Setup
 local sign = function(opts)
-	vim.fn.sign_define(opts.name, {
-		texthl = opts.name,
-		text = opts.text,
-		numhl = "",
-	})
+  vim.fn.sign_define(opts.name, {
+    texthl = opts.name,
+    text = opts.text,
+    numhl = "",
+  })
 end
 
 --sign({ name = "DiagnosticSignError", text = "" })
@@ -34,5 +33,3 @@ end
 --		cmd = { "clangd", "--all-scopes-completion=1", "--clang-tidy=1", "--header-insertion=iwyu", "--enable-config" },
 --	},
 --})
-
-

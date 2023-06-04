@@ -18,7 +18,12 @@ local plugins = {
   },
   "ryanoasis/vim-devicons",
   "sheerun/vim-polyglot",
-  "mfussenegger/nvim-dap",
+  {
+    "mfussenegger/nvim-dap",
+    init = function()
+      require("core.utils").load_mappings "dap"
+    end,
+  },
   "voldikss/vim-floaterm",
   {
     "williamboman/mason.nvim",
@@ -158,12 +163,44 @@ local plugins = {
   "hrsh7th/cmp-nvim-lsp-signature-help",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
-  "puremourning/vimspector",
+  { "puremourning/vimspector", lazy = false },
   { "sbdchd/neoformat", lazy = false },
   "folke/lsp-colors.nvim",
   { "catppuccin/nvim", name = "catppuccin" },
   "beanworks/vim-phpfmt",
   { "ziglang/zig.vim", lazy = false },
+  {
+    "leoluz/nvim-dap-go",
+    init = function()
+      local opts = {
+        dap_configurations = {
+          {
+            type = "go",
+            name = "Attach remote",
+            request = "launch",
+            program = "${file}",
+          },
+        },
+        delve = {
+          path = "dlv",
+          initialize_timeout_sec = 20,
+          port = "${port}",
+          args = {},
+        },
+      }
+      require("dap-go").setup(opts)
+    end,
+  },
+  {
+    "rcarriga/nvim-dap-ui",
+    lazy = false,
+    dependencies = {
+      "mfussenegger/nvim-dap",
+    },
+    init = function()
+      require("dapui").setup()
+    end,
+  },
 }
 
 return plugins
