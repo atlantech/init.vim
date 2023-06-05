@@ -3,6 +3,7 @@ local options = {
     "csharp-language-server",
     "clangd",
     "clang-format",
+    "cpptools",
     "gopls",
     "gospel",
     "codelldb",
