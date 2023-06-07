@@ -50,11 +50,6 @@ vim.cmd [[
     set ttyfast                 " Speed up scrolling in Vim
     set updatetime=100
     set shell=zsh
-    let g:netrw_localcopydircmd = 'cp -r'
-    let g:netrw_winsize = 30
-    let g:netrw_bufsettings = 'noma nomod nu nobl nowrap ro'
-    let g:ctrlp_cmd='CtrlPBuffer'
-    let g:ctrlp_working_path_mode = 'ra'
     
     let g:fzf_tags_command = 'ctags -R'
     "let g:gutentags_trace=1
@@ -66,8 +61,4 @@ vim.cmd [[
     let g:UltiSnipsListSnippets='<c-tab>'
     let g:UltiSnipsJumpForwardTrigger='<c-j>'
     let g:UltiSnipsJumpBackwardTrigger='<c-k>' 
-    let g:neoformat_try_node_exe=1
-
-    autocmd BufWritePre *.{py,lua,js,jsx,ts,tsx} Neoformat
-    autocmd BufWritePre *.{m,mm,c,cpp,h,hpp} ClangFormat
 ]]

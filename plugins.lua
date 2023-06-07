@@ -1,8 +1,43 @@
 local plugins = {
   "nvim-lua/plenary.nvim",
   {
-    "junegunn/fzf",
+    "jose-elias-alvarez/null-ls.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+
+    lazy = false,
+    config = function()
+      local null_ls = require "null-ls"
+      local formatting = null_ls.builtins.formatting
+      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+      local opt = {
+        sources = {
+          formatting.stylua,
+          formatting.autopep8,
+          formatting.clang_format.with {
+            extra_filetypes = { "m", "mm" },
+          },
+        },
+        on_attach = function(client, bufnr)
+          if client.supports_method "textDocument/formatting" then
+            vim.api.nvim_clear_autocmds {
+              group = augroup,
+              buffer = bufnr,
+            }
+            vim.api.nvim_create_autocmd("BufWritePre", {
+              group = augroup,
+              buffer = bufnr,
+              callback = function()
+                vim.lsp.buf.format { bufnr = bufnr }
+              end,
+            })
+          end
+        end,
+      }
+
+      null_ls.setup(opt)
+    end,
   },
+  "junegunn/fzf",
   "junegunn/fzf.vim",
   {
     "nvim-telescope/telescope-fzf-native.nvim",
@@ -25,24 +60,32 @@ local plugins = {
 
       local dap = require "dap"
 
+      -- todo remove hardcoded path
+      dap.adapters.lldb = {
+        id = "lldb",
+        type = "executable",
+        command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+      }
+
       dap.adapters.cppdbg = {
         id = "cppdbg",
         type = "executable",
-        commande = "OpenDebugAD7",
+        command = "OpenDebugAD7",
       }
 
       dap.configurations.cpp = {
         {
           name = "Launch file",
-          type = "cppdbg",
+          type = "lldb",
           request = "launch",
           program = function()
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
           end,
           cwd = "${workspaceFolder}",
-          stopAtEntry = true,
         },
       }
+      dap.configurations.c = dap.configurations.cpp
+      dap.configurations.rust = dap.configurations.rust
     end,
   },
   "voldikss/vim-floaterm",
@@ -80,16 +123,16 @@ local plugins = {
   },
   {
     "simrat39/symbols-outline.nvim",
-
+    lazy = false,
     config = function()
       local symbols_outline = require "symbols-outline"
       symbols_outline.setup {
+        show_guides = true,
         auto_preview = true,
       }
     end,
   },
   "p00f/clangd_extensions.nvim",
-  "rhysd/vim-clang-format",
   "ludovicchabant/vim-gutentags",
   {
     "ray-x/lsp_signature.nvim",
@@ -99,7 +142,6 @@ local plugins = {
   },
   { "onsails/lspkind.nvim", lazy = false },
   "SirVer/ultisnips",
-  "vim-autoformat/vim-autoformat",
   "RRethy/vim-illuminate",
   "honza/vim-snippets",
   "airblade/vim-gitgutter",
@@ -185,7 +227,6 @@ local plugins = {
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
   { "puremourning/vimspector", lazy = false },
-  { "sbdchd/neoformat", lazy = false },
   "folke/lsp-colors.nvim",
   { "catppuccin/nvim", name = "catppuccin" },
   "beanworks/vim-phpfmt",

@@ -45,6 +45,7 @@ local options = {
     "kotlin-debug-adapter",
     "php-debug-adapter",
     "zls",
+    "fortls",
   },
 }
 
