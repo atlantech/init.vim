@@ -70,7 +70,7 @@ local plugins = {
       dap.adapters.lldb = {
         id = "lldb",
         type = "executable",
-        command = "/opt/homebrew/opt/llvm/bin/lldb-vscode",
+        command = "lldb-vscode",
       }
 
       dap.adapters.cppdbg = {
