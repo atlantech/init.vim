@@ -1,5 +1,6 @@
 local plugins = {
   "nvim-lua/plenary.nvim",
+
   {
     "jose-elias-alvarez/null-ls.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -37,12 +38,15 @@ local plugins = {
       null_ls.setup(opt)
     end,
   },
+
   "junegunn/fzf",
   "junegunn/fzf.vim",
+
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
+
   {
     "nvim-telescope/telescope.nvim",
     opts = {
@@ -51,8 +55,10 @@ local plugins = {
       },
     },
   },
+
   "ryanoasis/vim-devicons",
   "sheerun/vim-polyglot",
+
   {
     "mfussenegger/nvim-dap",
     init = function()
@@ -82,13 +88,17 @@ local plugins = {
             return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
           end,
           cwd = "${workspaceFolder}",
+          runInTerminal = false,
+          args = {},
         },
       }
       dap.configurations.c = dap.configurations.cpp
       dap.configurations.rust = dap.configurations.rust
     end,
   },
+
   "voldikss/vim-floaterm",
+
   {
     "williamboman/mason.nvim",
     opts = function()
@@ -98,7 +108,9 @@ local plugins = {
       return vim.tbl_deep_extend("force", default_conf, custom)
     end,
   },
+
   "williamboman/mason-lspconfig.nvim",
+
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function()
@@ -108,6 +120,7 @@ local plugins = {
       return vim.tbl_deep_extend("force", default, custom)
     end,
   },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
@@ -115,12 +128,14 @@ local plugins = {
       require "custom.configs.lspconfig"
     end,
   },
+
   {
     "simrat39/rust-tools.nvim",
     config = function()
       require("rust-tools").setup {}
     end,
   },
+
   {
     "simrat39/symbols-outline.nvim",
     lazy = false,
@@ -132,22 +147,29 @@ local plugins = {
       }
     end,
   },
+
   "p00f/clangd_extensions.nvim",
   "ludovicchabant/vim-gutentags",
+
   {
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup()
     end,
   },
+
   { "onsails/lspkind.nvim", lazy = false },
+
   "SirVer/ultisnips",
   "RRethy/vim-illuminate",
   "honza/vim-snippets",
   "airblade/vim-gitgutter",
+
   { "tpope/vim-fugitive", lazy = false },
+
   "christoomey/vim-tmux-navigator",
   "tpope/vim-obsession",
+
   {
     "hrsh7th/nvim-cmp",
     dependencies = {
@@ -221,16 +243,23 @@ local plugins = {
       }
     end,
   },
+
   "hrsh7th/cmp-nvim-lsp",
   "hrsh7th/cmp-nvim-lua",
   "hrsh7th/cmp-nvim-lsp-signature-help",
   "hrsh7th/cmp-path",
   "hrsh7th/cmp-buffer",
+
   { "puremourning/vimspector", lazy = false },
+
   "folke/lsp-colors.nvim",
+
   { "catppuccin/nvim", name = "catppuccin" },
+
   "beanworks/vim-phpfmt",
+
   { "ziglang/zig.vim", lazy = false },
+
   {
     "leoluz/nvim-dap-go",
     init = function()
@@ -253,6 +282,7 @@ local plugins = {
       require("dap-go").setup(opts)
     end,
   },
+
   {
     "rcarriga/nvim-dap-ui",
     lazy = false,
