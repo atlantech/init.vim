@@ -121,6 +121,8 @@ local plugins = {
     end,
   },
 
+  { "nvim-treesitter/nvim-treesitter-context", lazy = false },
+
   {
     "neovim/nvim-lspconfig",
     config = function()
