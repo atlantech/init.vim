@@ -29,4 +29,12 @@ M.dap = {
   },
 }
 
+M.undotree = {
+  n = {
+    ["<leader>ut"] = {
+      "<cmd> UndotreeToggle <CR>",
+      "Toggle undotree",
+    },
+  },
+}
 return M
