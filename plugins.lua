@@ -23,7 +23,7 @@ local plugins = {
           formatting.csharpier,
           formatting.erlfmt.with {
             command = "rebar3",
-            args = { "fmt", "$FILENAME" },
+            args = { "fmt", "-" },
           },
           formatting.eslint,
           formatting.json_tool,
