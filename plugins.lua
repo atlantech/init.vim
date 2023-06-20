@@ -12,6 +12,31 @@ local plugins = {
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local opt = {
         sources = {
+          formatting.gofmt,
+          formatting.goimports,
+          formatting.ktlint,
+          formatting.nginx_beautifier,
+          formatting.phpcbf,
+          formatting.phpcsfixer,
+          formatting.prettier,
+          formatting.cmake_format,
+          formatting.csharpier,
+          formatting.erlfmt.with {
+            command = "rebar3",
+            args = { "fmt", "$FILENAME" },
+          },
+          formatting.eslint,
+          formatting.json_tool,
+          formatting.mix,
+          formatting.rubocop,
+          formatting.rubyfmt,
+          formatting.rustfmt,
+          formatting.rustywind,
+          formatting.stylelint,
+          formatting.swiftlint,
+          formatting.tidy,
+          formatting.yamlfix,
+          formatting.zigfmt,
           formatting.stylua,
           formatting.autopep8,
           formatting.clang_format.with {
