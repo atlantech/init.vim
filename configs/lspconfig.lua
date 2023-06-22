@@ -4,7 +4,6 @@ local lspconfig = require "lspconfig"
 
 -- todo setup each server individually
 local servers = {
-  "erlangls",
   "tsserver",
   "pyright",
   "phpactor",
