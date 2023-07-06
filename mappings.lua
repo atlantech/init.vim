@@ -1,5 +1,16 @@
 local M = {}
 
+M.symbols_outline = {
+  n = {
+    ["<leader>so"] = {
+      function()
+        require("symbols-outline").toggle_outline()
+      end,
+      "Toggle symbols outline",
+    },
+  },
+}
+
 M.dap = {
   n = {
     ["<leader>b"] = {
