@@ -104,6 +104,23 @@ local plugins = {
         command = "OpenDebugAD7",
       }
 
+      dap.adapters.els_dap = {
+        id = "els_dap",
+        type = "executable",
+        command = "els_dap",
+      }
+
+      dap.configurations.erlang = {
+        {
+          name = "Existing Erlang Node",
+          type = "els_dap",
+          request = "attach",
+          projectnode = "hello_world_example",
+          cookie = "hello_world_example",
+          cwd = "${workspaceRoot}",
+        },
+      }
+
       dap.configurations.cpp = {
         {
           name = "Launch file",
@@ -121,7 +138,13 @@ local plugins = {
       dap.configurations.rust = dap.configurations.rust
     end,
   },
-
+  {
+    "nvim-telescope/telescope.nvim",
+    cmd = "Telescope",
+    opts = function()
+      return require "custom.configs.telescope"
+    end,
+  },
   "voldikss/vim-floaterm",
 
   {
