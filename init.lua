@@ -21,6 +21,7 @@ vim.cmd [[
 ]]
 
 -- Treesitter folding
+vim.opt.foldlevel = 4
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 

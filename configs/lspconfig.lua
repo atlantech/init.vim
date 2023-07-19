@@ -42,3 +42,7 @@ lspconfig.rust_analyzer.setup {
     ["rust-analyzer"] = {},
   },
 }
+
+lspconfig.tailwindcss.setup {
+  filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "html" },
+}
