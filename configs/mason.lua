@@ -17,6 +17,7 @@ local options = {
     "vim-language-server",
     "tailwindcss-language-server",
     "yaml-language-server",
+    "yamlfix",
     "stylua",
     "ansible-language-server",
     "bash-language-server",

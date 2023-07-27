@@ -42,6 +42,16 @@ local plugins = {
           formatting.clang_format.with {
             extra_filetypes = { "m", "mm" },
           },
+          null_ls.builtins.diagnostics.phpcs.with {
+            args = {
+              "--standard=PSR12",
+            },
+          },
+          null_ls.builtins.formatting.phpcbf.with {
+            args = {
+              "--standard=PSR12",
+            },
+          },
         },
         on_attach = function(client, bufnr)
           if client.supports_method "textDocument/formatting" then

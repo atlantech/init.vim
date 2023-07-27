@@ -14,7 +14,7 @@ local servers = {
   "cmake",
   "csharp_ls",
   "cssls",
-  "docker_compose_language_service",
+  --  "docker_compose_language_service",
   "dockerls",
   "elixirls",
   "erlangls",
@@ -24,10 +24,10 @@ local servers = {
   "kotlin_language_server",
   "phpactor",
   "ruby_ls",
-  "tailwindcss",
+  -- "tailwindcss",
   "tsserver",
   "vimls",
-  "yamlls",
+  -- "yamlls",
 }
 
 for _, server in ipairs(servers) do
