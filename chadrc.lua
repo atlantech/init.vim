@@ -7,6 +7,9 @@ local M = {
 
   ui = {
     theme = "github_light",
+    tabufline = {
+      enabled = false,
+    },
   },
 }
 
