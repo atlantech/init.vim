@@ -14,6 +14,7 @@ local plugins = {
         sources = {
           formatting.gofmt,
           formatting.goimports,
+          formatting.golines,
           formatting.ktlint,
           formatting.nginx_beautifier,
           formatting.phpcsfixer,

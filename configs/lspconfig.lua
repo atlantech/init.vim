@@ -1,6 +1,7 @@
 local capabilities = require("plugins.configs.lspconfig").capabilities
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local lspconfig = require "lspconfig"
+local util = require "lspconfig/util"
 
 -- todo setup each server individually
 local servers = {
@@ -23,7 +24,6 @@ local servers = {
   "jsonls",
   "kotlin_language_server",
   "phpactor",
-  "ruby_ls",
   -- "tailwindcss",
   "tsserver",
   "vimls",
@@ -45,4 +45,21 @@ lspconfig.rust_analyzer.setup {
 
 lspconfig.tailwindcss.setup {
   filetypes = { "typescript", "javascript", "javascriptreact", "typescriptreact", "vue", "html" },
+}
+
+lspconfig.gopls.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  cmd = { "gopls" },
+  filetypes = { "go", "gomod", "gowork", "gotmpl" },
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true,
+      },
+    },
+  },
 }
