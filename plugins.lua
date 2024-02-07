@@ -17,7 +17,8 @@ local plugins = {
                     formatting.golines,
                     formatting.ktlint,
                     formatting.nginx_beautifier,
-                    formatting.phpcsfixer,
+                    formatting.phpcbf,
+          formatting.phpcs,
                     formatting.prettier,
                     formatting.cmake_format,
                     formatting.csharpier,
@@ -308,9 +309,7 @@ local plugins = {
     "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
 
-    { "puremourning/vimspector", lazy = false },
-
-    "folke/lsp-colors.nvim",
+  "folke/lsp-colors.nvim",
 
     { "catppuccin/nvim", name = "catppuccin" },
 
