@@ -1,16 +1,15 @@
 local mappings = require "custom.mappings"
 
 local M = {
-  plugins = "custom.plugins",
+    plugins = "custom.plugins",
 
-  mappings = mappings,
+    mappings = mappings,
 
-  ui = {
-    theme = "github_light",
-    tabufline = {
-      enabled = false,
+    ui = {
+        tabufline = {
+            enabled = false,
+        },
     },
-  },
 }
 
 return M

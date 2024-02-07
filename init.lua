@@ -50,16 +50,15 @@ vim.cmd [[
     set cursorline              " highlight current cursorline
     set ttyfast                 " Speed up scrolling in Vim
     set updatetime=100
-    set shell=zsh
-    
+
     let g:fzf_tags_command = 'ctags -R'
     "let g:gutentags_trace=1
     let g:gutentags_ctags_executable='ctags'
-    
+
     let g:rustfmt_autosave = 1
-    
+
     let g:UltiSnipsExpandTrigger='<tab>'
     let g:UltiSnipsListSnippets='<c-tab>'
     let g:UltiSnipsJumpForwardTrigger='<c-j>'
-    let g:UltiSnipsJumpBackwardTrigger='<c-k>' 
+    let g:UltiSnipsJumpBackwardTrigger='<c-k>'
 ]]
