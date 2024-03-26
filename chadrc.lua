@@ -6,6 +6,7 @@ local M = {
     mappings = mappings,
 
     ui = {
+        theme = "catppuccin", 
         tabufline = {
             enabled = false,
         },
