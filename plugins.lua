@@ -12,6 +12,7 @@ local plugins = {
       local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
       local opt = {
         sources = {
+          formatting.dart_format,
           formatting.gofmt,
           formatting.goimports,
           formatting.golines,
