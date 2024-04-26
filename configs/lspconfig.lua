@@ -24,7 +24,6 @@ local servers = {
   "gradle_ls",
   "jsonls",
   "kotlin_language_server",
-  "phpactor",
   -- "tailwindcss",
   "tsserver",
   "vimls",

@@ -1,16 +1,16 @@
 local mappings = require "custom.mappings"
 
 local M = {
-    plugins = "custom.plugins",
+  plugins = "custom.plugins",
 
-    mappings = mappings,
+  mappings = mappings,
 
-    ui = {
-        theme = "catppuccin", 
-        tabufline = {
-            enabled = false,
-        },
+  ui = {
+    theme = "catppuccin",
+    tabufline = {
+      enabled = false,
     },
+  },
 }
 
 return M
