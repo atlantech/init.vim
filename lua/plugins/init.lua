@@ -187,11 +187,6 @@ return {
     "williamboman/mason.nvim",
     opts = function()
       return require "configs.mason"
-      -- todo
-      -- local default_conf = require "plugins.configs.mason"
-      -- local custom = require "custom.configs.mason"
-      --
-      -- return vim.tbl_deep_extend("force", default_conf, custom)
     end,
   },
 

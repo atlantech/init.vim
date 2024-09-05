@@ -59,6 +59,9 @@ M.base46 = {
   theme = "catppuccin",
   mappings = mappings,
 
+  ui = {
+    theme = "catppuccin",
+  },
   -- hl_override = {
   -- 	Comment = { italic = true },
   -- 	["@comment"] = { italic = true },
