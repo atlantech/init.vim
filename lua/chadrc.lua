@@ -61,6 +61,9 @@ M.base46 = {
 
   ui = {
     theme = "catppuccin",
+    tabufline = {
+      enabled = false
+    }
   },
   -- hl_override = {
   -- 	Comment = { italic = true },

@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+    event = 'BufWritePre', -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -12,84 +12,82 @@ return {
       require "configs.lspconfig"
     end,
   },
-  {
-    "jose-elias-alvarez/null-ls.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-
-    lazy = false,
-    config = function()
-      local null_ls = require "null-ls"
-      local formatting = null_ls.builtins.formatting
-      local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
-      local opt = {
-        sources = {
-          formatting.dart_format,
-          formatting.gofmt,
-          formatting.goimports,
-          formatting.golines,
-          formatting.ktlint,
-          formatting.nginx_beautifier,
-          formatting.phpcsfixer,
-          formatting.prettier,
-          formatting.cmake_format,
-          formatting.csharpier,
-          formatting.erlfmt.with {
-            command = "rebar3",
-            args = { "fmt", "-" },
-          },
-          formatting.eslint,
-          formatting.json_tool,
-          formatting.rustfmt,
-          formatting.stylelint,
-          formatting.swiftlint,
-          formatting.tidy,
-          formatting.zigfmt,
-          formatting.stylua,
-          formatting.autopep8,
-          formatting.clang_format.with {
-            extra_filetypes = { "m", "mm" },
-          },
-          null_ls.builtins.diagnostics.phpcs.with {
-            args = {
-              "--standard=PSR12",
-            },
-          },
-          null_ls.builtins.formatting.phpcbf.with {
-            args = {
-              "--standard=PSR12",
-            },
-          },
-        },
-        on_attach = function(client, bufnr)
-          if client.supports_method "textDocument/formatting" then
-            vim.api.nvim_clear_autocmds {
-              group = augroup,
-              buffer = bufnr,
-            }
-            vim.api.nvim_create_autocmd("BufWritePre", {
-              group = augroup,
-              buffer = bufnr,
-              callback = function()
-                vim.lsp.buf.format { bufnr = bufnr }
-              end,
-            })
-          end
-        end,
-      }
-
-      null_ls.setup(opt)
-    end,
-  },
+  -- {
+  --   "jose-elias-alvarez/null-ls.nvim",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --
+  --   lazy = false,
+  --   config = function()
+  --     local null_ls = require "null-ls"
+  --     local formatting = null_ls.builtins.formatting
+  --     local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
+  --     local opt = {
+  --       sources = {
+  --         formatting.dart_format,
+  --         formatting.gofmt,
+  --         formatting.goimports,
+  --         formatting.golines,
+  --         formatting.ktlint,
+  --         formatting.nginx_beautifier,
+  --         formatting.phpcsfixer,
+  --         formatting.prettier,
+  --         formatting.cmake_format,
+  --         formatting.csharpier,
+  --         formatting.erlfmt.with {
+  --           command = "rebar3",
+  --           args = { "fmt", "-" },
+  --         },
+  --         formatting.eslint,
+  --         formatting.json_tool,
+  --         formatting.rustfmt,
+  --         formatting.stylelint,
+  --         formatting.swiftlint,
+  --         formatting.tidy,
+  --         formatting.zigfmt,
+  --         formatting.stylua,
+  --         formatting.autopep8,
+  --         formatting.clang_format.with {
+  --           extra_filetypes = { "m", "mm" },
+  --         },
+  --         null_ls.builtins.diagnostics.phpcs.with {
+  --           args = {
+  --             "--standard=PSR12",
+  --           },
+  --         },
+  --         null_ls.builtins.formatting.phpcbf.with {
+  --           args = {
+  --             "--standard=PSR12",
+  --           },
+  --         },
+  --       },
+  --       on_attach = function(client, bufnr)
+  --         if client.supports_method "textDocument/formatting" then
+  --           vim.api.nvim_clear_autocmds {
+  --             group = augroup,
+  --             buffer = bufnr,
+  --           }
+  --           vim.api.nvim_create_autocmd("BufWritePre", {
+  --             group = augroup,
+  --             buffer = bufnr,
+  --             callback = function()
+  --               vim.lsp.buf.format { bufnr = bufnr }
+  --             end,
+  --           })
+  --         end
+  --       end,
+  --     }
+  --
+  --     null_ls.setup(opt)
+  --   end,
+  -- },
 
   "junegunn/fzf",
   "junegunn/fzf.vim",
-
   {
     "nvim-telescope/telescope-fzf-native.nvim",
     build =
     "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
-
   {
     "nvim-telescope/telescope.nvim",
     opts = {
@@ -98,10 +96,8 @@ return {
       },
     },
   },
-
   "ryanoasis/vim-devicons",
   "sheerun/vim-polyglot",
-
   {
     "mfussenegger/nvim-dap",
     init = function()
@@ -164,7 +160,6 @@ return {
     end,
   },
   "voldikss/vim-floaterm",
-
   {
     "williamboman/mason.nvim",
     opts = function()
@@ -173,23 +168,19 @@ return {
   },
 
   "williamboman/mason-lspconfig.nvim",
-
   {
     "nvim-treesitter/nvim-treesitter",
     opts = function()
       return require "configs.treesitter"
     end,
   },
-
   { "nvim-treesitter/nvim-treesitter-context", lazy = false },
-
   {
     "simrat39/rust-tools.nvim",
     config = function()
       require("rust-tools").setup {}
     end,
   },
-
   {
     "simrat39/symbols-outline.nvim",
     lazy = false,
@@ -201,56 +192,46 @@ return {
       }
     end,
   },
-
   "p00f/clangd_extensions.nvim",
   "ludovicchabant/vim-gutentags",
-
   {
     "ray-x/lsp_signature.nvim",
     config = function()
       require("lsp_signature").setup()
     end,
   },
-
   { "onsails/lspkind.nvim",                    lazy = false },
-
   "SirVer/ultisnips",
   "RRethy/vim-illuminate",
   "honza/vim-snippets",
   "airblade/vim-gitgutter",
-
   { "tpope/vim-fugitive", lazy = false },
-
   "christoomey/vim-tmux-navigator",
   "tpope/vim-obsession",
 
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-vsnip",
-      "hrsh7th/vim-vsnip",
-    },
-    config = function()
-      cmp = require "cmp"
-      config = require "configs.cmp"
-      cmp.setup(config)
-    end,
-  },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   dependencies = {
+  --     "hrsh7th/cmp-vsnip",
+  --     "hrsh7th/vim-vsnip",
+  --   },
+  --   config = function()
+  --     cmp = require "cmp"
+  --     config = require "configs.cmp"
+  --     cmp.setup(config)
+  --   end,
+  -- },
 
-  "hrsh7th/cmp-nvim-lsp",
-  "hrsh7th/cmp-nvim-lua",
-  "hrsh7th/cmp-nvim-lsp-signature-help",
-  "hrsh7th/cmp-path",
-  "hrsh7th/cmp-buffer",
+  -- "hrsh7th/cmp-nvim-lsp",
+  -- "hrsh7th/cmp-nvim-lua",
+  -- "hrsh7th/cmp-nvim-lsp-signature-help",
+  -- "hrsh7th/cmp-path",
+  -- "hrsh7th/cmp-buffer",
 
   "folke/lsp-colors.nvim",
-
   { "catppuccin/nvim",    name = "catppuccin" },
-
   "beanworks/vim-phpfmt",
-
   { "ziglang/zig.vim",      lazy = false },
-
   {
     "leoluz/nvim-dap-go",
     init = function()
@@ -280,6 +261,12 @@ return {
     dependencies = {
       "mfussenegger/nvim-dap",
     },
+    config = function()
+      local opts = {
+        library = { plugins = { "nvim-dap-ui" }, type = true },
+      }
+      return opts
+    end,
     init = function()
       local dap = require "dap"
       local dapui = require "dapui"
@@ -295,17 +282,6 @@ return {
       dap.listeners.before.event_exited["dapui_config"] = function()
         dapui.close()
       end
-    end,
-  },
-
-  {
-    "rcarriga/nvim-dap-ui",
-    dependencies = { "mfussenegger/nvim-dap" },
-    config = function()
-      local opts = {
-        library = { plugins = { "nvim-dap-ui" }, type = true },
-      }
-      return opts
     end,
   },
   { "mbbill/undotree", lazy = false },
