@@ -9,5 +9,5 @@ map("i", "jk", "<ESC>")
 
 -- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
 
-
 vim.api.nvim_set_keymap("n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<cr>", {})
+vim.api.nvim_set_keymap("n", "<Leader>ft", ":lua require'telescope.builtin'.treesitter {}<cr>", {})
