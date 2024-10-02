@@ -75,6 +75,9 @@ M.ui = {
   tabufline = {
     enabled = false,
   },
+  statusline = {
+    separator_style = "block",
+  },
 }
 
 M.mason = {
