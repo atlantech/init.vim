@@ -78,6 +78,9 @@ M.ui = {
   statusline = {
     separator_style = "block",
   },
+  cmp = {
+    style = "flat_dark",
+  },
 }
 
 M.mason = {
