@@ -1,7 +1,7 @@
 return {
   {
     "stevearc/conform.nvim",
-    event = 'BufWritePre', -- uncomment for format on save
+    event = "BufWritePre", -- uncomment for format on save
     opts = require "configs.conform",
   },
 
@@ -85,8 +85,7 @@ return {
   "junegunn/fzf.vim",
   {
     "nvim-telescope/telescope-fzf-native.nvim",
-    build =
-    "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+    build = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
   },
   {
     "nvim-telescope/telescope.nvim",
@@ -200,7 +199,7 @@ return {
       require("lsp_signature").setup()
     end,
   },
-  { "onsails/lspkind.nvim",                    lazy = false },
+  { "onsails/lspkind.nvim", lazy = false },
   "SirVer/ultisnips",
   "RRethy/vim-illuminate",
   "honza/vim-snippets",
@@ -229,9 +228,9 @@ return {
   -- "hrsh7th/cmp-buffer",
 
   "folke/lsp-colors.nvim",
-  { "catppuccin/nvim",    name = "catppuccin" },
+  { "catppuccin/nvim", name = "catppuccin" },
   "beanworks/vim-phpfmt",
-  { "ziglang/zig.vim",      lazy = false },
+  { "ziglang/zig.vim", lazy = false },
   {
     "leoluz/nvim-dap-go",
     init = function()
@@ -297,6 +296,13 @@ return {
       -- local default = require "plugins.configs.nvimtree"
       --
       -- return vim.tbl_deep_extend("force", default, custom)
+      local o = {
+        view = {
+          relativenumber = true,
+        },
+      }
+
+      return o
     end,
     config = function(_, opts)
       dofile(vim.g.base46_cache .. "nvimtree")

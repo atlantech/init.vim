@@ -4,6 +4,7 @@ local options = {
     rust = { "rustfmt", lsp_format = "fallback" },
     css = { "prettier" },
     html = { "prettier" },
+    python = { "black" },
   },
 
   format_on_save = {
