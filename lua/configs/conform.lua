@@ -5,7 +5,7 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     python = { "black" },
-    typescript = { command = "deno fmt" },
+    typescript = { command = "deno fmt", lsp_format = "fallback" },
   },
 
   format_on_save = {
