@@ -81,6 +81,7 @@ M.ui = {
   },
   statusline = {
     separator_style = "block",
+    theme = "vscode_colored",
   },
   cmp = {
     style = "flat_dark",

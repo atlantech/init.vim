@@ -93,8 +93,8 @@ lspconfig.denols.setup {
   root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),
 }
 
-lspconfig.ts_ls.setup {
-  on_attach = nvlsp.on_attach,
-  root_dir = lspconfig.util.root_pattern "package.json",
-  single_file_support = false,
-}
+-- lspconfig.ts_ls.setup {
+--   on_attach = nvlsp.on_attach,
+--   root_dir = lspconfig.util.root_pattern "package.json",
+--   single_file_support = false,
+-- }

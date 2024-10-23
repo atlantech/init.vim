@@ -96,6 +96,16 @@ return {
     },
   },
   "ryanoasis/vim-devicons",
+  {
+    "mxsdev/nvim-dap-vscode-js",
+    dependencies = { "mfussenegger/nvim-dap" },
+    init = function()
+      -- todo
+      require("dap-vscode-js").setup {
+        adapters = { "pwa-node", "pwa-chrome", "pwa-msedge", "node-terminal", "pwa-extensionHost" },
+      }
+    end,
+  },
   "sheerun/vim-polyglot",
   {
     "mfussenegger/nvim-dap",
@@ -147,6 +157,20 @@ return {
           args = {},
         },
       }
+
+      for _, language in ipairs { "typescript", "javascript" } do
+        dap.configurations[language] = {
+          {
+            type = "pwa-node",
+            name = "Attach to a node app",
+            request = "attach",
+            address = "localhost",
+            port = 9229,
+            cwd = "${workspaceFolder}",
+            restart = true,
+          },
+        }
+      end
       dap.configurations.c = dap.configurations.cpp
       dap.configurations.rust = dap.configurations.rust
     end,
@@ -158,7 +182,6 @@ return {
       return require "configs.telescope"
     end,
   },
-  "voldikss/vim-floaterm",
   {
     "williamboman/mason.nvim",
     opts = function()
