@@ -5,7 +5,10 @@ local options = {
     css = { "prettier" },
     html = { "prettier" },
     python = { "black" },
-    typescript = { command = "deno fmt", lsp_format = "fallback" },
+    typescript = { "prettier" },
+    typescriptreact = { "prettier" },
+    javascript = { "prettier" },
+    javascriptreact = { "prettier" },
   },
 
   format_on_save = {
