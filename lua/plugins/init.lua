@@ -95,6 +95,10 @@ return {
       },
     },
   },
+  {
+    "nvim-telescope/telescope-file-browser.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+  },
   "ryanoasis/vim-devicons",
   {
     "mxsdev/nvim-dap-vscode-js",

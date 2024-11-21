@@ -13,3 +13,5 @@ vim.api.nvim_set_keymap("n", "<Leader>ca", ":lua vim.lsp.buf.code_action()<cr>",
 vim.api.nvim_set_keymap("n", "<Leader>ft", ":lua require'telescope.builtin'.treesitter {}<cr>", {})
 
 vim.api.nvim_del_keymap("n", "<tab>")
+
+map("n", "<leader>fd", "<cmd>Telescope file_browser<CR>", { desc = "Telescope file browser" })
