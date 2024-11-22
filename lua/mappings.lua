@@ -3,6 +3,7 @@ require "nvchad.mappings"
 -- add yours here
 
 local map = vim.keymap.set
+local nomap = vim.keymap.del
 
 map("n", ";", ":", { desc = "CMD enter command mode" })
 map("i", "jk", "<ESC>")
@@ -14,4 +15,11 @@ vim.api.nvim_set_keymap("n", "<Leader>ft", ":lua require'telescope.builtin'.tree
 
 vim.api.nvim_del_keymap("n", "<tab>")
 
-map("n", "<leader>fd", "<cmd>Telescope file_browser<CR>", { desc = "Telescope file browser" })
+map(
+  "n",
+  "<leader>fd",
+  "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { desc = "Telescope file browser" }
+)
+
+nomap("n", "<C-n>")
