@@ -16,7 +16,6 @@ local config = {
     "ruby",
     "rust",
     "scala",
-    "swift",
     "typescript",
     "vim",
     "vimdoc",
