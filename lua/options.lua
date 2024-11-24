@@ -29,3 +29,5 @@ vim.opt.foldlevel = 4
 vim.wo.foldmethod = "expr"
 vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
 vim.wo.relativenumber = true
+
+vim.api.nvim_set_option_value("clipboard", "unnamed")
