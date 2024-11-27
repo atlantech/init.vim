@@ -23,3 +23,5 @@ map(
 )
 
 nomap("n", "<C-n>")
+nomap("", "<leader>h")
+nomap("", "<leader>v")
