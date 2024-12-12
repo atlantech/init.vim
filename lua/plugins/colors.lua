@@ -5,6 +5,7 @@ return {
     name = "catppuccin",
     priority = 1000,
     opts = {
+      flavor = "mocha",
       integrations = {
         aerial = true,
         alpha = true,
@@ -42,12 +43,6 @@ return {
         treesitter_context = true,
         which_key = true,
       },
-    },
-  },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin-mocha",
     },
   },
 }
