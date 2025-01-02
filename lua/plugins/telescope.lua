@@ -8,9 +8,10 @@ return {
   },
   {
     "nvim-telescope/telescope.nvim",
+    lazy = false,
     tag = "0.1.8",
     dependencies = { "nvim-lua/plenary.nvim" },
-    config = function()
+    opts = function(_, opts)
       local config = {
         extensions_list = {
           "fzf",
@@ -31,14 +32,14 @@ return {
           },
           selection_caret = "  ",
           entry_prefix = "  ",
-          initial_mode = "normal",
+          initial_mode = "insert",
           selection_strategy = "reset",
           sorting_strategy = "ascending",
           layout_strategy = "horizontal",
           layout_config = {
             horizontal = {
               preview_cutoff = 0,
-              prompt_position = "",
+              prompt_position = "bottom",
               preview_width = 0.55,
               results_width = 0.8,
             },
