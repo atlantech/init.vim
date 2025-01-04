@@ -9,3 +9,10 @@ vim.keymap.set(
   "<cmd>Telescope current_buffer_fuzzy_find<cr>",
   { desc = "Telescope find in current buffer" }
 )
+
+vim.keymap.set(
+  "n",
+  "<leader>fa",
+  "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
+  { desc = "Telescope find all" }
+)
