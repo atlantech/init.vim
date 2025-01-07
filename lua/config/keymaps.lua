@@ -16,3 +16,5 @@ vim.keymap.set(
   "<cmd>Telescope find_files follow=true no_ignore=true hidden=true<cr>",
   { desc = "Telescope find all" }
 )
+
+vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename symbol" })
