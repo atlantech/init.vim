@@ -17,4 +17,11 @@ vim.keymap.set(
   { desc = "Telescope find all" }
 )
 
+vim.keymap.set(
+  "n",
+  "<leader>fd",
+  "<cmd>Telescope file_browser path=%:p:h select_buffer=true<CR>",
+  { desc = "Telescope file browser" }
+)
+
 vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename symbol" })
