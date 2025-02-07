@@ -13,6 +13,7 @@ return {
         typescriptreact = { "prettier" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
+        yaml = { "prettier" },
       },
 
       default_format_opts = {
