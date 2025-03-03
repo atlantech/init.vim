@@ -1,8 +1,15 @@
 -- Keymaps are automatically loaded on the VeryLazy event
 -- Default keymaps that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
 -- Add any additional keymaps here
+local builtin = require("telescope.builtin")
+local utils = require("telescope.utils")
 
 vim.keymap.set("n", "<leader>fw", "<cmd>Telescope live_grep<cr>", { desc = "Telescope live grep" })
+vim.keymap.set("n", "<leader>fW", function()
+  builtin.live_grep({
+    cwd = utils.buffer_dir(),
+  })
+end, { desc = "Telescope live grep (CWD)" })
 vim.keymap.set(
   "n",
   "<leader>fz",
@@ -25,3 +32,5 @@ vim.keymap.set(
 )
 
 vim.keymap.set("n", "<leader>ra", vim.lsp.buf.rename, { desc = "Rename symbol" })
+
+vim.keymap.set("n", "<leader>cc", "<cmd>CodeCompanionChat Toggle<cr>", { desc = "Toggle CodeCompanionChat" })
