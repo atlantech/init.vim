@@ -35,7 +35,7 @@ return {
           initial_mode = "insert",
           selection_strategy = "reset",
           sorting_strategy = "ascending",
-          layout_strategy = "horizontal",
+          layout_strategy = "vertical",
           layout_config = {
             horizontal = {
               preview_cutoff = 0,

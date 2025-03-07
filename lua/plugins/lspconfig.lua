@@ -24,7 +24,7 @@ return {
         "gradle_ls",
         "jsonls",
         "kotlin_language_server",
-        -- "tailwindcss",
+        "tailwindcss",
         "ts_ls",
         "vimls",
         -- "yamlls",
