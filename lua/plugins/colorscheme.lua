@@ -6,7 +6,7 @@ return {
     priority = 1000,
     opts = {
       transparent_background = false,
-      flavor = "mocha",
+      flavour = "mocha",
       integrations = {
         aerial = true,
         alpha = true,
@@ -44,6 +44,12 @@ return {
         treesitter_context = true,
         which_key = true,
       },
+    },
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin",
     },
   },
 }
