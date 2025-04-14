@@ -4,3 +4,13 @@
 --
 vim.g.lazyvim_picker = "telescope"
 vim.opt.smoothscroll = false
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = "●",
+    spacing = 4,
+  },
+  signs = true,
+  underline = true,
+  severity_sort = true,
+})
