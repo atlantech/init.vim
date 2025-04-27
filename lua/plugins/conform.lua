@@ -4,6 +4,7 @@ return {
     opts = {
       formatters_by_ft = {
         lua = { "stylua" },
+        erlang = { "erlfmt" },
         go = { "goimports", "gofmt" },
         rust = { "rustfmt", lsp_format = "fallback" },
         css = { "prettier" },
