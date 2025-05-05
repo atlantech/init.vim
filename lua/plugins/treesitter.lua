@@ -1,3 +1,9 @@
+vim.filetype.add({
+  pattern = {
+    ["rebar%.config"] = "erlang",
+  },
+})
+
 return {
   {
 
@@ -43,7 +49,7 @@ return {
       auto_install = true,
       highlight = {
         enable = true,
-        additional_vim_regex_highlighting = false,
+        additional_vim_regex_highlighting = {},
         use_languagetree = true,
       },
       ident = { enable = true },
