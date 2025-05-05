@@ -13,4 +13,6 @@ vim.diagnostic.config({
   signs = true,
   underline = true,
   severity_sort = true,
+  update_in_insert = false,
+  severity = { min = vim.diagnostic.severity.HINT },
 })

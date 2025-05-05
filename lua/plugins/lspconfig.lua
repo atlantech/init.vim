@@ -1,6 +1,26 @@
 return {
   {
     "neovim/nvim-lspconfig",
+    opts = function()
+      local ret = {
+
+        inlay_hints = {
+          enable = true,
+        },
+        diagnostics = {
+          virtual_text = {
+            prefix = "●",
+            spacing = 4,
+          },
+          signs = true,
+          underline = true,
+          severity_sort = true,
+          update_in_insert = false,
+          severity = { min = vim.diagnostic.severity.HINT },
+        },
+      }
+      return ret
+    end,
     config = function()
       local lspconfig = require("lspconfig")
       local servers = {
@@ -20,7 +40,7 @@ return {
         "dockerls",
         "elixirls",
         "erlangls",
-        "gopls",
+        --"gopls",
         "gradle_ls",
         "jsonls",
         "kotlin_language_server",
@@ -75,11 +95,29 @@ return {
             completeUnimported = true,
             usePlaceholders = true,
             analyses = {
+              unhandledErrors = true,
               unusedparams = true,
             },
+            staticcheck = true,
           },
         },
       })
+
+      local configs = require("lspconfig/configs")
+      if not configs.golangcilsp then
+        configs.golangcilsp = {
+          default_config = {
+            cmd = { "golangci-lint-langserver" },
+            root_dir = lspconfig.util.root_pattern(".git", "go.mod"),
+            init_options = {
+              command = { "golangci-lint", "run", "--out-format", "json", "--issues-exit-code=1" },
+            },
+          },
+        }
+      end
+      --lspconfig.golangci_lint_ls.setup({
+      -- filetypes = { "go", "gomod" },
+      --})
 
       lspconfig.denols.setup({
         root_dir = lspconfig.util.root_pattern("deno.json", "deno.jsonc"),

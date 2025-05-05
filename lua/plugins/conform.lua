@@ -15,6 +15,7 @@ return {
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         yaml = { "prettier" },
+        sql = { "sleek" },
       },
 
       default_format_opts = {
