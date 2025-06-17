@@ -3,25 +3,22 @@ return {
     "olimorris/codecompanion.nvim",
     config = function()
       require("codecompanion").setup({
+        opts = {
+          log_level = "DEBU",
+        },
         strategies = {
           chat = {
-            adapter = "openai",
+            adapter = "ollama",
           },
           inline = {
-            adapter = "openai",
+            adapter = "ollama",
           },
         },
         adapters = {
-          openai = function()
-            return require("codecompanion.adapters").extend("openai", {
+          ollama = function()
+            return require("codecompanion.adapters").extend("ollama", {
               env = {
-                api_key = "",
-              },
-              schema = {
-                --model = "o3-mini-2025-01-31",
-                model = {
-                  default = "gpt-4o",
-                },
+                url = "http://192.168.50.177:11434",
               },
             })
           end,

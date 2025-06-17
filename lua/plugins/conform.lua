@@ -16,10 +16,18 @@ return {
         javascriptreact = { "prettier" },
         yaml = { "prettier" },
         sql = { "sleek" },
+        dart = { "dart" },
       },
 
       default_format_opts = {
         lsp_format = "fallback",
+      },
+
+      formatters = {
+        dart = {
+          command = "dart",
+          args = { "format", "-o", "show", "--show", "none", "--summary", "none", "$FILENAME" },
+        },
       },
     },
   },
